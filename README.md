@@ -5,11 +5,11 @@
 - Run `npm install` to load dependencies listed in package.json
 
 ### Code Steps - Included
-- Step 1:	Client-Side Setup - HTML, CSS, & JS
-- Step 2:	Server-Side Setup - Express & HTTP Server
+- STEP 1:	Client-Side Setup - HTML, CSS, & JS
+- STEP 2:	Server-Side Setup - Express & HTTP Server
 
 ### Code Steps - To Do
-- Step 3:	Server-Side Socket.io Initialization + Connection
+- STEP 3:	Server-Side Socket.io Initialization + Connection
 ```
 //Initialize socket.io
 let io = require("socket.io");
@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
 });
 ```
 
-- Step 4:	Client-Side Socket.io Initialization + Connection
+- STEP 4:	Client-Side Socket.io Initialization + Connection
 ```
 //Open and connect socket
 let socket = io();
@@ -42,7 +42,7 @@ socket.on('connect', () => {
 });
 ```
 
-- Step 5:	Client-Side **‘Emit’** Event - What do you send?
+- STEP 5:	Client-Side **‘Emit’** Event - What do you send?
 ```
 function mouseMoved() {
   //Grab mouse position
@@ -56,7 +56,7 @@ function mouseMoved() {
 }
 ```
 
-- Step 6:	Server-Side **‘On’** Event
+- STEP 6:	Server-Side **‘On’** Event
 ```
 //Listen for a message named 'data' from a client
 socket.on('data', (data) => {
@@ -70,7 +70,7 @@ socket.on('data', (data) => {
 }
 ```
 
-- Step 7:	Server-Side **‘Emit’** Event - How to share?
+- STEP 7:	Server-Side **‘Emit’** Event - How to share?
 ```
 //Send data to ALL clients, including this one
 io.emit('data', data);
@@ -82,7 +82,7 @@ io.emit('data', data);
 // socket.emit('data', data);
 ```
 
-- Step 8:	Client Side **‘On’** Event - What do you need?
+- STEP 8:	Client Side **‘On’** Event - What do you need?
 ```
 //Listen for a message named 'data' from the server
 socket.on('data', function(obj) {
