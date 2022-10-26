@@ -1,4 +1,4 @@
-## Socekt.io - Drawing Example Starter
+## Socekt.io - Drawing App Starter
 
 ### Local Setup
 - `cd` via the commnad line to the project folder
@@ -58,13 +58,13 @@ function mouseMoved() {
 
 - Step 6:	Server-Side **‘On’** Event
 ```
-//Listen for a message named 'data' from this client
+//Listen for a message named 'data' from a client
 socket.on('data', (data) => {
   //Data can be numbers, strings, objects
   console.log("Received 'data' msg");
   console.log(data);
 
-  //Send data back to the clients using .emit()
+  //Send the data back to the clients using .emit()
 
 
 }
