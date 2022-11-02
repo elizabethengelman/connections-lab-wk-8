@@ -29,6 +29,12 @@ io.on("connection", (socket) => {
     // socket.emit to send it back to the original sender
   });
 
+  socket.on("mouseClicked", (x, y) => {
+    // send the message to all clients
+    console.log("emit a mouse click");
+    io.emit("mouseClickAll", x, y);
+  });
+
   socket.on("disconnect", () => {
     console.log("A client has disconnected: " + socket.id);
   });
