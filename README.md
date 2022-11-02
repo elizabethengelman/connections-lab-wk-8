@@ -1,25 +1,32 @@
-## Socekt.io - Drawing App Starter
+This project is based on [https://github.com/craigprotzel/sockets-drawing-app-starter](https://github.com/craigprotzel/sockets-drawing-app-starter)
+
+## Socket.io - Drawing App Starter
 
 ### Local Setup
+
 - `cd` via the commnad line to the project folder
 - Run `npm install` to load dependencies listed in package.json
 
 ### Code Steps - Included
-- STEP 1:	Client-Side Setup - HTML, CSS, & JS
-- STEP 2:	Server-Side Setup - Express & HTTP Server
+
+- STEP 1: Client-Side Setup - HTML, CSS, & JS
+- STEP 2: Server-Side Setup - Express & HTTP Server
 
 ### Code Steps - To Do
-- STEP 3:	Server-Side Socket.io Initialization + Connection
+
+- STEP 3: Server-Side Socket.io Initialization + Connection
+
 ```
 //Initialize socket.io
 let io = require("socket.io");
 io = new io.Server(server);
 ```
+
 ```
 //Listen for individual clients/users to connect
 io.on("connection", (socket) => {
   console.log("We have a new client: " + socket.id);
-  
+
   //Listen for messages from the client
 
 
@@ -30,11 +37,13 @@ io.on("connection", (socket) => {
 });
 ```
 
-- STEP 4:	Client-Side Socket.io Initialization + Connection
+- STEP 4: Client-Side Socket.io Initialization + Connection
+
 ```
 //Open and connect socket
 let socket = io();
 ```
+
 ```
 //Listen for confirmation of connection
 socket.on('connect', () => {
@@ -42,7 +51,8 @@ socket.on('connect', () => {
 });
 ```
 
-- STEP 5:	Client-Side **‘Emit’** Event - What do you send?
+- STEP 5: Client-Side **‘Emit’** Event - What do you send?
+
 ```
 function mouseMoved() {
   //Grab mouse position
@@ -56,7 +66,8 @@ function mouseMoved() {
 }
 ```
 
-- STEP 6:	Server-Side **‘On’** Event
+- STEP 6: Server-Side **‘On’** Event
+
 ```
 //Listen for a message named 'data' from a client
 socket.on('data', (data) => {
@@ -70,7 +81,8 @@ socket.on('data', (data) => {
 }
 ```
 
-- STEP 7:	Server-Side **‘Emit’** Event - How to share?
+- STEP 7: Server-Side **‘Emit’** Event - How to share?
+
 ```
 //Send data to ALL clients, including this one
 io.emit('data', data);
@@ -82,7 +94,8 @@ io.emit('data', data);
 // socket.emit('data', data);
 ```
 
-- STEP 8:	Client Side **‘On’** Event - What do you need?
+- STEP 8: Client Side **‘On’** Event - What do you need?
+
 ```
 //Listen for a message named 'data' from the server
 socket.on('data', function(obj) {
@@ -90,6 +103,7 @@ socket.on('data', function(obj) {
   drawPos(obj);
 });
 ```
+
 ```
 //Expects an object with x and y properties
 function drawPos(pos) {
